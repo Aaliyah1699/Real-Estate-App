@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import OAuth from '../components/OAuth';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({});
@@ -19,6 +20,8 @@ const SignUp = () => {
         e.preventDefault();
         try {
             setLoading(true);
+
+            // Send to api
             const res = await fetch('/api/auth/signup', {
                 method: 'POST',
                 headers: {
@@ -79,6 +82,8 @@ const SignUp = () => {
                 >
                     {loading ? 'Loading...' : 'Sign Up'}
                 </button>
+                {/* Sign up with google */}
+                <OAuth />
             </form>
 
             {/* Sign In */}
