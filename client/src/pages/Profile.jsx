@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { app } from '../firebase';
+import {
+    getDownloadURL,
+    getStorage,
+    ref,
+    uploadBytesResumable,
+} from 'firebase/storage';
 
 const Profile = () => {
     const fileRef = useRef(null);
@@ -13,8 +20,34 @@ const Profile = () => {
     const [showListingsError, setShowListingsError] = useState(false);
     const [userListings, setUserListings] = useState([]);
 
+    useEffect(() => {
+        if (file) {
+            handleFileUpload(file);
+        }
+    }, [file]);
+
     const handleFileUpload = (file) => {
-        console.log(file);
+        const storage = getStorage(app);
+        const fileName = new Date().getTime() + file.name;
+        const storageRef = ref(storage, fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+                const progress =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setFilePerc(Math.round(progress));
+            },
+            (error) => {
+                setFileUploadError(true);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
+                    setFormData({ ...formData, avatar: downloadURL })
+                );
+            }
+        );
     };
 
     const handleChange = (e) => {
@@ -63,13 +96,13 @@ const Profile = () => {
                 />
                 <p className='text-sm self-center'>
                     {fileUploadError ? (
-                        <span className='text-red-700'>
+                        <span className='text-red-600'>
                             Error Image upload (image must be less than 2 mb)
                         </span>
                     ) : filePerc > 0 && filePerc < 100 ? (
                         <span className='text-gray-700'>{`Uploading ${filePerc}%`}</span>
                     ) : filePerc === 100 ? (
-                        <span className='text-green-700'>
+                        <span className='text-emerald-700'>
                             Image successfully uploaded!
                         </span>
                     ) : (
@@ -128,14 +161,14 @@ const Profile = () => {
                 </span>
             </div>
             {/* Error & Update user */}
-            <p className='text-red-700 mt-5'>{error ? error : ''}</p>
-            <p className='text-green-700 mt-5'>
+            <p className='text-red-600 mt-5'>{error ? error : ''}</p>
+            <p className='text-emerald-700 mt-5'>
                 {updateSuccess ? 'User is updated successfully!' : ''}
             </p>
             {/* Listings */}
             <button
                 onClick={handleShowListings}
-                className='text-emerald-700 w-full'
+                className='text-emerald-900 w-full'
             >
                 Show Listings
             </button>
@@ -145,7 +178,7 @@ const Profile = () => {
             {/*  */}
             {userListings && userListings.length > 0 && (
                 <div className='flex flex-col gap-4'>
-                    <h1 className='text-center mt-7 text-2xl font-semibold'>
+                    <h1 className='text-center mt-7 text-2xl font-bold title-font'>
                         Your Listings
                     </h1>
                     {userListings.map((listing) => (
