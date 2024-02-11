@@ -7,3 +7,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.logo-font {
+    font-family: 'Six Caps', sans-serif;
+    font-size: 40px !important;
+}
+
+.title-font {
+    font-family: 'Playfair Display SC', serif;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500 !important;
+    font-size: large !important;
+    letter-spacing: 1px;
+}
