@@ -4,15 +4,15 @@ const ListingSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
+            required: [true, 'Please provide name'],
         },
         description: {
             type: String,
-            required: true,
+            required: [true, 'Please provide listing description'],
         },
         address: {
             type: String,
-            required: true,
+            required: [true, 'Please provide address'],
         },
         regularPrice: {
             type: Number,
