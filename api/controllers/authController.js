@@ -28,13 +28,9 @@ export const signIn = async (req, res, next) => {
             return next(errorHandler(401, 'Invalid credentials'));
         const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
         const { password: pass, ...rest } = validUser._doc;
-        const expires = new Date();
-        expires.setDate(expires.getDate() + 3);
+
         res.cookie('access_token', token, {
             httpOnly: true,
-            sameSite: 'strict',
-            signed: true,
-            expires,
         })
             .status(200)
             .json(rest);
@@ -50,13 +46,8 @@ export const google = async (req, res, next) => {
             const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
             const { password: pass, ...rest } = user._doc;
 
-            const expires = new Date();
-            expires.setDate(expires.getDate() + 3);
             res.cookie('access_token', token, {
                 httpOnly: true,
-                sameSite: 'strict',
-                signed: true,
-                expires,
             })
                 .status(200)
                 .json(rest);
@@ -77,13 +68,8 @@ export const google = async (req, res, next) => {
             const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
             const { password: pass, ...rest } = newUser._doc;
 
-            const expires = new Date();
-            expires.setDate(expires.getDate() + 3);
             res.cookie('access_token', token, {
                 httpOnly: true,
-                sameSite: 'strict',
-                signed: true,
-                expires,
             })
                 .status(200)
                 .json(rest);
