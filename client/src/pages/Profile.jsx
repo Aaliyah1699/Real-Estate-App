@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef, useEffect } from 'react';
 import { app } from '../firebase';
 import {
-    getDownloadURL,
     getStorage,
+    getDownloadURL,
     ref,
     uploadBytesResumable,
 } from 'firebase/storage';
+import {
+    updateUserStart,
+    updateUserSuccess,
+    updateUserFailure,
+    deleteUserFailure,
+    deleteUserStart,
+    deleteUserSuccess,
+    signOutUserStart,
+} from '../redux/user/userSlice';
 
 const Profile = () => {
     const fileRef = useRef(null);
@@ -19,6 +28,7 @@ const Profile = () => {
     const [updateSuccess, setUpdateSuccess] = useState(false);
     const [showListingsError, setShowListingsError] = useState(false);
     const [userListings, setUserListings] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (file) {
@@ -51,11 +61,31 @@ const Profile = () => {
     };
 
     const handleChange = (e) => {
-        console.log(e);
+        setFormData({ ...formData, [e.target.id]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            dispatch(updateUserStart());
+            const res = await fetch(`/api/user/update/${currentUser._id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const data = await res.json();
+            if (data.success === false) {
+                dispatch(updateUserFailure(data.message));
+                return;
+            }
+
+            dispatch(updateUserSuccess(data));
+            setUpdateSuccess(true);
+        } catch (error) {
+            dispatch(updateUserFailure(error.message));
+        }
     };
 
     const handleDeleteUser = async () => {
@@ -96,13 +126,13 @@ const Profile = () => {
                 />
                 <p className='text-sm self-center'>
                     {fileUploadError ? (
-                        <span className='text-red-600'>
+                        <span className='text-red-700'>
                             Error Image upload (image must be less than 2 mb)
                         </span>
                     ) : filePerc > 0 && filePerc < 100 ? (
-                        <span className='text-gray-700'>{`Uploading ${filePerc}%`}</span>
+                        <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
                     ) : filePerc === 100 ? (
-                        <span className='text-emerald-700'>
+                        <span className='text-emerald-950'>
                             Image successfully uploaded!
                         </span>
                     ) : (
@@ -114,7 +144,7 @@ const Profile = () => {
                     placeholder='Username'
                     defaultValue={currentUser.username}
                     id='username'
-                    className='border p-3 rounded-lg'
+                    className='border p-3 rounded-lg capitalize'
                     onChange={handleChange}
                 />
                 <input
@@ -132,6 +162,7 @@ const Profile = () => {
                     id='password'
                     className='border p-3 rounded-lg'
                 />
+                {/* Buttons */}
                 <button
                     disabled={loading}
                     className='bg-gray-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
@@ -162,7 +193,7 @@ const Profile = () => {
             </div>
             {/* Error & Update user */}
             <p className='text-red-600 mt-5'>{error ? error : ''}</p>
-            <p className='text-emerald-700 mt-5'>
+            <p className='text-emerald-950 mt-5'>
                 {updateSuccess ? 'User is updated successfully!' : ''}
             </p>
             {/* Listings */}
@@ -210,7 +241,7 @@ const Profile = () => {
                                     Delete
                                 </button>
                                 <Link to={`/update-listing/${listing._id}`}>
-                                    <button className='text-emerald-700 uppercase'>
+                                    <button className='text-emerald-950 uppercase'>
                                         Edit
                                     </button>
                                 </Link>
