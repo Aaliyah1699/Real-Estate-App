@@ -194,7 +194,7 @@ const Profile = () => {
                     {loading ? 'Loading...' : 'Update'}
                 </button>
                 <Link
-                    className='bg-sky-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+                    className='bg-sky-900 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
                     to={'/create-listing'}
                 >
                     Create Listing
@@ -223,7 +223,7 @@ const Profile = () => {
             {/* Listings */}
             <button
                 onClick={handleShowListings}
-                className='text-emerald-900 w-full'
+                className='text-sky-950 w-full'
             >
                 Show Listings
             </button>

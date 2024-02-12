@@ -90,7 +90,7 @@ const SignUp = () => {
             <div className='flex gap-2 mt-5'>
                 <p className=''>Have an account?</p>
                 <Link to='/sign-in'>
-                    <span className='text-sky-700'>Sign In</span>
+                    <span className='text-sky-950'>Sign In</span>
                 </Link>
             </div>
             {/* Error */}
