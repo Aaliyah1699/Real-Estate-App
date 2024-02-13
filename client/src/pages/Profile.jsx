@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef, useEffect } from 'react';
+import { TbHomeEdit, TbTrashX } from 'react-icons/tb';
 import { app } from '../firebase';
 import {
     getStorage,
@@ -121,11 +122,38 @@ const Profile = () => {
     };
 
     const handleShowListings = async () => {
-        console.log('show list');
+        try {
+            setShowListingsError(false);
+            const res = await fetch(`/api/user/listings/${currentUser._id}`);
+            const data = await res.json();
+            if (data.success === false) {
+                setShowListingsError(true);
+                return;
+            }
+
+            setUserListings(data);
+        } catch (error) {
+            setShowListingsError(true);
+        }
     };
 
     const handleListingDelete = async (listingId) => {
-        console.log(listingId);
+        try {
+            const res = await fetch(`/api/listing/delete/${listingId}`, {
+                method: 'DELETE',
+            });
+            const data = await res.json();
+            if (data.success === false) {
+                console.log(data.message);
+                return;
+            }
+
+            setUserListings((prev) =>
+                prev.filter((listing) => listing._id !== listingId)
+            );
+        } catch (error) {
+            console.log(error.message);
+        }
     };
 
     return (
@@ -223,7 +251,7 @@ const Profile = () => {
             {/* Listings */}
             <button
                 onClick={handleShowListings}
-                className='text-sky-950 w-full'
+                className='text-sky-900 w-full'
             >
                 Show Listings
             </button>
@@ -239,7 +267,7 @@ const Profile = () => {
                     {userListings.map((listing) => (
                         <div
                             key={listing._id}
-                            className='border rounded-lg p-3 flex justify-between items-center gap-4'
+                            className=' rounded-lg p-3 flex justify-between items-center gap-4'
                         >
                             <Link to={`/listing/${listing._id}`}>
                                 <img
@@ -249,7 +277,7 @@ const Profile = () => {
                                 />
                             </Link>
                             <Link
-                                className='text-gray-700 font-semibold  hover:underline truncate flex-1'
+                                className='text-white font-semibold  hover:underline truncate flex-1'
                                 to={`/listing/${listing._id}`}
                             >
                                 <p>{listing.name}</p>
@@ -260,13 +288,13 @@ const Profile = () => {
                                     onClick={() =>
                                         handleListingDelete(listing._id)
                                     }
-                                    className='text-red-600 uppercase'
+                                    className='text-red-600 uppercase my-1'
                                 >
-                                    Delete
+                                    <TbTrashX className='h-6 w-6' />
                                 </button>
                                 <Link to={`/update-listing/${listing._id}`}>
                                     <button className='text-emerald-950 uppercase'>
-                                        Edit
+                                        <TbHomeEdit className='h-6 w-6' />
                                     </button>
                                 </Link>
                             </div>
