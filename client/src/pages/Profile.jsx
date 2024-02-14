@@ -277,7 +277,7 @@ const Profile = () => {
                                 />
                             </Link>
                             <Link
-                                className='text-white font-semibold  hover:underline truncate flex-1'
+                                className='text-gray-700 capitalize font-semibold  hover:underline truncate flex-1'
                                 to={`/listing/${listing._id}`}
                             >
                                 <p>{listing.name}</p>
