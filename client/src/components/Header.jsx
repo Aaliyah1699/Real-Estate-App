@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BsSearchHeart } from 'react-icons/bs';
+import { BiBuildingHouse } from 'react-icons/bi';
 
 const Header = () => {
     const { currentUser } = useSelector((state) => state.user);
@@ -29,8 +30,9 @@ const Header = () => {
                 {/* Logo */}
                 <Link to='/'>
                     <h1 className='font-bold text-sm sm:text-xl flex flex-wrap logo-font'>
-                        <span className='text-slate-500'>Realty</span>
-                        <span className='text-gray-700'>Rise</span>
+                        <BiBuildingHouse className='text-gray-800' />
+                        <span className='text-slate-500 mt-1'>Realty</span>
+                        <span className='text-gray-700 mt-1'>Rise</span>
                     </h1>
                 </Link>
                 {/* Search */}
