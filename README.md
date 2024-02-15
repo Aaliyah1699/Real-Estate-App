@@ -9,7 +9,7 @@ offering advanced authentication features, real-world CRUD operations for proper
 user-friendly functionalities like image uploads and property listing management,
 
 and advanced search capabilities.
-(RealtyRise Website)[https://realtyrise.onrender.com]🏡
+[RealtyRise Website](https://realtyrise.onrender.com)🏡
 
 ## Features
 
