@@ -2,7 +2,7 @@
 
 Welcome to RealtyRise, where luxury meets convenience in the realm of real estate management. Explore a world of opulent homes, breathtaking apartments, grand houses, majestic penthouses, and extravagant mansions—all at your fingertips. With advanced features like seamless Google Sign-In, intuitive listing management, and personalized messaging, RealtyRise elevates your real estate experience to new heights. Discover your dream property with ease, only on [RealtyRise](https://realtyrise.onrender.com)🏡.
 
-#Check out my [Portfolio💜](https://aaliyahm-portfolio.netlify.app/) 
+# Check out my [Portfolio💜](https://aaliyahm-portfolio.netlify.app/) 
 
 RealtyRise, your premier platform for managing luxury homes, apartments, houses, penthouses, mansions, and more. With an elegant MERN blend of MongoDB, Firebase, Redux, and Tailwind, RealtyRise offers a seamless user experience for real estate enthusiasts.
 
