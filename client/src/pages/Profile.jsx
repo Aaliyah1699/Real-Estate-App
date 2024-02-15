@@ -222,7 +222,7 @@ const Profile = () => {
                     {loading ? 'Loading...' : 'Update'}
                 </button>
                 <Link
-                    className='bg-sky-900 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+                    className='bg-fuchsia-900 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
                     to={'/create-listing'}
                 >
                     Create Listing
@@ -238,7 +238,7 @@ const Profile = () => {
                 </span>
                 <span
                     onClick={handleSignOut}
-                    className='text-red-800 cursor-pointer'
+                    className='text-sky-800 cursor-pointer'
                 >
                     Sign out
                 </span>
@@ -251,7 +251,7 @@ const Profile = () => {
             {/* Listings */}
             <button
                 onClick={handleShowListings}
-                className='text-sky-900 w-full'
+                className='text-fuchsia-900 w-full'
             >
                 Show Listings
             </button>
@@ -293,7 +293,7 @@ const Profile = () => {
                                     <TbTrashX className='h-6 w-6' />
                                 </button>
                                 <Link to={`/update-listing/${listing._id}`}>
-                                    <button className='text-emerald-950 uppercase'>
+                                    <button className='text-fuchsia-950 uppercase'>
                                         <TbHomeEdit className='h-6 w-6' />
                                     </button>
                                 </Link>

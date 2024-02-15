@@ -65,7 +65,7 @@ const Listing = () => {
                                     className='h-[550px]'
                                     style={{
                                         background: `url(${url}) center no-repeat`,
-                                        backgroundSize: 'cover',
+                                        backgroundSize: 'contain',
                                     }}
                                 ></div>
                             </SwiperSlide>
@@ -74,7 +74,7 @@ const Listing = () => {
                     {/* Share */}
                     <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-gray-200 cursor-pointer'>
                         <TbShare3
-                            className='text-sky-700 text-lg'
+                            className='text-fuchsia-700 text-lg'
                             onClick={() => {
                                 navigator.clipboard.writeText(
                                     window.location.href
@@ -102,17 +102,17 @@ const Listing = () => {
                             {listing.type === 'rent' && ' / month'}
                         </p>
                         <p className='flex items-center mt-6 gap-2 text-gray-700  text-lg capitalize'>
-                            <TbMapPin className='text-sky-700' />
+                            <TbMapPin className='text-fuchsia-700' />
                             {listing.address}
                         </p>
                         <div className='flex gap-4'>
-                            <p className='bg-red-800 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                            <p className='bg-sky-800 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                                 {listing.type === 'rent'
                                     ? 'For Rent'
                                     : 'For Sale'}
                             </p>
                             {listing.offer && (
-                                <p className='bg-sky-700 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                                <p className='bg-fuchsia-700 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                                     $
                                     {+listing.regularPrice -
                                         +listing.discountPrice}{' '}
@@ -129,25 +129,25 @@ const Listing = () => {
                         {/* House info */}
                         <ul className='text-gray-800 font-semibold flex flex-wrap items-center gap-4 sm:gap-6 text-xl capitalize'>
                             <li className='flex items-center gap-1 whitespace-nowrap '>
-                                <TbBed className='text-lg text-sky-700' />
+                                <TbBed className='text-lg text-fuchsia-700' />
                                 {listing.bedrooms > 1
                                     ? `${listing.bedrooms} beds `
                                     : `${listing.bedrooms} bed `}
                             </li>
                             <li className='flex items-center gap-1 whitespace-nowrap '>
-                                <TbBath className='text-lg text-sky-700' />
+                                <TbBath className='text-lg text-fuchsia-700' />
                                 {listing.bathrooms > 1
                                     ? `${listing.bathrooms} baths `
                                     : `${listing.bathrooms} bath `}
                             </li>
                             <li className='flex items-center gap-1 whitespace-nowrap '>
-                                <TbParking className='text-lg text-sky-700' />
+                                <TbParking className='text-lg text-fuchsia-700' />
                                 {listing.parking
                                     ? 'Parking spot'
                                     : 'No Parking'}
                             </li>
                             <li className='flex items-center gap-1 whitespace-nowrap '>
-                                <TbArmchair2 className='text-lg text-sky-700' />
+                                <TbArmchair2 className='text-lg text-fuchsia-700' />
                                 {listing.furnished
                                     ? 'Furnished'
                                     : 'Unfurnished'}
@@ -159,7 +159,7 @@ const Listing = () => {
                             !contact && (
                                 <button
                                     onClick={() => setContact(true)}
-                                    className='bg-sky-900 text-white rounded-lg uppercase hover:opacity-95 p-3'
+                                    className='bg-fuchsia-900 text-white rounded-lg uppercase hover:opacity-95 p-3'
                                 >
                                     Contact Owner
                                 </button>

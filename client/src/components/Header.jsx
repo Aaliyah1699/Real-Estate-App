@@ -31,7 +31,7 @@ const Header = () => {
                 <Link to='/'>
                     <h1 className='font-bold text-sm sm:text-xl flex flex-wrap logo-font'>
                         <BiBuildingHouse className='text-gray-800' />
-                        <span className='text-slate-500 mt-1'>Realty</span>
+                        <span className='text-fuchsia-500 mt-1'>Realty</span>
                         <span className='text-gray-700 mt-1'>Rise</span>
                     </h1>
                 </Link>
@@ -48,7 +48,7 @@ const Header = () => {
                         className='bg-transparent focus:outline-none w-24 sm:w-64'
                     />
                     <button>
-                        <BsSearchHeart className='text-gray-600' />
+                        <BsSearchHeart className='text-gray-700' />
                     </button>
                 </form>
                 {/* Header Links */}
@@ -73,7 +73,7 @@ const Header = () => {
                                 alt='profile'
                             />
                         ) : (
-                            <li className=' text-slate-700 hover:underline'>
+                            <li className=' text-fuchsia-700 hover:underline'>
                                 {' '}
                                 Sign in
                             </li>

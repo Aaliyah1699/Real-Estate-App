@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import ListingItem from '../components/ListingItem';
 import { Navigation } from 'swiper/modules';
 import SwiperCore from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
-import ListingItem from '../components/ListingItem';
+
 
 const Home = () => {
     const [offerListings, setOfferListings] = useState([]);
@@ -51,27 +53,30 @@ const Home = () => {
             {/* top */}
             <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
                 <h1 className='text-gray-700 font-bold text-3xl lg:text-5xl title-font'>
-                    Find your next{' '}
-                    <span className='text-slate-500'>perfect</span>
+                    Discover your{' '}
+                    <span className='text-fuchsia-500'>dream </span>
                     <br />
-                    place with ease
+                    home effortlessly
                 </h1>
                 <div className='text-gray-500 text-md sm:text-md'>
-                    RealtyRise Estate is the best place to find your next
-                    perfect place to live.
+                    Whether seeking a cozy apartment, a spacious house, or a
+                    luxurious villa, our listings cover it all.
                     <br />
-                    We have a wide range of properties for you to choose from.
+                    Explore our diverse selection of properties and embark on
+                    your journey to find the perfect place to call home.
                 </div>
                 <Link
                     to={'/search'}
-                    className='text-lg sm:text-md text-sky-800 font-bold hover:underline'
+                    className='text-lg sm:text-md text-fuchsia-800 font-bold hover:underline'
                 >
-                    Lets get started...
+                    Begin your search today...
                 </Link>
             </div>
 
+            <div className='img'></div>
+
             {/* swiper */}
-            <Swiper navigation>
+            {/* <Swiper navigation>
                 {offerListings &&
                     offerListings.length > 0 &&
                     offerListings.map((listing) => (
@@ -86,7 +91,7 @@ const Home = () => {
                             ></div>
                         </SwiperSlide>
                     ))}
-            </Swiper>
+            </Swiper> */}
 
             {/* listing results for offer, sale and rent */}
 
@@ -98,7 +103,7 @@ const Home = () => {
                                 Recent offers
                             </h2>
                             <Link
-                                className='text-md text-sky-800 hover:underline'
+                                className='text-md text-fuchsia-800 hover:underline'
                                 to={'/search?offer=true'}
                             >
                                 Show more offers
@@ -122,7 +127,7 @@ const Home = () => {
                                 Recent places for rent
                             </h2>
                             <Link
-                                className='text-md text-sky-800 hover:underline'
+                                className='text-md text-fuchsia-800 hover:underline'
                                 to={'/search?type=rent'}
                             >
                                 Show more places for rent
@@ -146,7 +151,7 @@ const Home = () => {
                                 Recent places for sale
                             </h2>
                             <Link
-                                className='text-md text-sky-800 hover:underline'
+                                className='text-md text-fuchsia-800 hover:underline'
                                 to={'/search?type=sale'}
                             >
                                 Show more places for sale

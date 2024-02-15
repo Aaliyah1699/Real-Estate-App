@@ -24,3 +24,9 @@ body {
     letter-spacing: 1px;
     background-color: #f1f5f9;
 }
+.img {
+    background-image: url('https://ca-times.brightspotcdn.com/dims4/default/664047d/2147483647/strip/true/crop/1760x870+0+0/resize/1200x593!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F99%2F10%2F327afed14b608783fbf18b23b4ae%2Fimage-16.png');
+    background-repeat: no-repeat, no-repeat;
+    height: 500px;
+    background-size: cover;
+}

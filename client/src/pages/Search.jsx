@@ -234,7 +234,7 @@ const Search = () => {
                             <option value='createdAt_asc'>Oldest</option>
                         </select>
                     </div>
-                    <button className='bg-sky-900 text-white p-3 rounded-lg uppercase hover:opacity-95'>
+                    <button className='bg-fuchsia-900 text-white p-3 rounded-lg uppercase hover:opacity-95'>
                         Search
                     </button>
                 </form>
@@ -264,7 +264,7 @@ const Search = () => {
                     {showMore && (
                         <button
                             onClick={onShowMoreClick}
-                            className='text-sky-800 hover:underline p-7 text-center w-full'
+                            className='text-fuchsia-800 hover:underline p-7 text-center w-full'
                         >
                             Show more
                         </button>

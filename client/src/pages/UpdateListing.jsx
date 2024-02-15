@@ -394,7 +394,7 @@ const UpdateListing = () => {
                         ))}
                     <button
                         disabled={loading || uploading}
-                        className='p-3 bg-sky-900 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+                        className='p-3 bg-fuchsia-900 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
                     >
                         {loading ? 'Creating...' : 'Update listing'}
                     </button>

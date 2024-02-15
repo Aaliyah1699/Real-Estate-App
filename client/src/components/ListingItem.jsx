@@ -18,7 +18,7 @@ const ListingItem = ({ listing }) => {
                         {listing.name}
                     </p>
                     <div className='flex items-center gap-1'>
-                        <TiLocationOutline className='h-4 w-4 text-sky-700' />
+                        <TiLocationOutline className='h-4 w-4 text-fuchsia-700' />
                         <p className='text-sm text-gray-700 truncate w-full'>
                             {listing.address}
                         </p>
