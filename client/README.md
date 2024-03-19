@@ -1,8 +1,24 @@
-# React + Vite
+# RealtyRise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to RealtyRise, your ultimate destination for all things real estate! Whether you're buying, selling, or renting, RealtyRise provides a seamless and secure platform to meet all your property needs. Choose your forever home [here](https://realtyrise.onrender.com/)🏡.
 
-Currently, two official plugins are available:
+### Check out my [Portfolio💜](https://aaliyahm-portfolio.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
+
+RealtyRise is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) real estate application designed to revolutionize the way you interact with property listings. With advanced authentication, user-friendly features, and cutting-edge search functionality, RealtyRise offers a modern and intuitive experience for both buyers and sellers.
+
+## Technologies Used
+
+- **MongoDB**: For storing property listings and user data.
+- **Express.js**: As the backend framework to handle HTTP requests and routes.
+- **React.js**: For building the frontend user interface and components.
+- **Node.js**: As the runtime environment for the backend server.
+- **JWT, Firebase, and Google OAuth**: For advanced authentication to ensure secure and seamless user access.
+  
+## User Functionalities
+
+- **Advanced Authentication**: Implement JWT, Firebase, and Google OAuth for secure and seamless user access.
+- **Real-world CRUD Operations**: Create, read, update, and delete property listings using MongoDB.
+- **User-friendly Features**: Enhance the user experience with image uploads, property listing management, and more.
+- **Advanced Search Functionality**: Implement cutting-edge search features to help users find what they're looking for.
