@@ -6,7 +6,7 @@ Welcome to RealtyRise, where luxury meets convenience in the realm of real estat
 
 RealtyRise, your premier platform for managing luxury homes, apartments, houses, penthouses, mansions, and more. With an elegant MERN blend of MongoDB, Firebase, Redux, and Tailwind, RealtyRise offers a seamless user experience for real estate enthusiasts.
 
-## Tehnologies Used
+## Technologies Used
 
 - **MongoDB**: Stores listings and user data securely.
 - **Firebase**: Powers Google Sign-In, stores images, and facilitates OAuth for enhanced security.
