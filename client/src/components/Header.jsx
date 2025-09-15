@@ -28,7 +28,7 @@ const Header = () => {
         <header className='bg-gray-200 shadow-md'>
             <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
                 {/* Logo */}
-                <Link to='/'>
+                <Link to='https://aaliyahs-portfolio.netlify.app/'>
                     <h1 className='font-bold text-sm sm:text-xl flex flex-wrap logo-font'>
                         <BiBuildingHouse className='text-gray-800' />
                         <span className='text-fuchsia-500 mt-1'>Realty</span>
